@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Affiliate Account Requests</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <header class="container header">
+      <div class="brand">
+        <div class="logo">AA</div>
+        <div>
+          <div class="brand-name">Affiliate Accounts</div>
+          <div class="brand-sub">Submit a request. I’ll email you options.</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#tiers">Tiers</a>
+        <a href="#request">Submit Request</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-left">
+          <h1>Buy TikTok affiliate accounts without the Telegram chaos.</h1>
+          <p class="muted">
+            Pick a tier, submit a ticket, and get account options via email. All requests are tracked in a
+            professional dashboard.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#request">Submit a Request</a>
+            <a class="btn ghost" href="#tiers">Browse Tiers</a>
+          </div>
+          <div class="trust-row">
+            <div class="pill">Tracked tickets</div>
+            <div class="pill">Email-based workflow</div>
+            <div class="pill">Anti-spam protections</div>
+          </div>
+        </div>
+
+        <div class="hero-right card">
+          <h3>How it works</h3>
+          <ol class="steps">
+            <li>Select a follower tier (5k / 10k / 50k+).</li>
+            <li>Tell me your requirements (niche, region, budget).</li>
+            <li>I email you available options + next steps.</li>
+          </ol>
+          <p class="fineprint">
+            Note: Availability changes. Submitting a request does not guarantee a specific handle.
+          </p>
+        </div>
+      </section>
+
+      <section id="tiers" class="section">
+        <div class="section-head">
+          <h2>Account tiers</h2>
+          <p class="muted">Click a tier to prefill your request.</p>
+        </div>
+
+        <div class="grid">
+          <button class="tier card" data-tier="5k" data-range="5k followers">
+            <div class="tier-top">
+              <h3>5k</h3>
+              <span class="badge">Most common</span>
+            </div>
+            <p class="muted">Starter affiliate accounts.</p>
+            <ul class="list">
+              <li>Fast turnaround</li>
+              <li>Best for volume</li>
+              <li>Usually budget-friendly</li>
+            </ul>
+          </button>
+
+          <button class="tier card" data-tier="10k" data-range="10k followers">
+            <div class="tier-top">
+              <h3>10k</h3>
+              <span class="badge">Growth</span>
+            </div>
+            <p class="muted">Higher follower base.</p>
+            <ul class="list">
+              <li>Better initial reach</li>
+              <li>More limited supply</li>
+              <li>Great for stronger offers</li>
+            </ul>
+          </button>
+
+          <button class="tier card" data-tier="50k+" data-range="50k+ followers">
+            <div class="tier-top">
+              <h3>50k+</h3>
+              <span class="badge">Premium</span>
+            </div>
+            <p class="muted">Large accounts (limited).</p>
+            <ul class="list">
+              <li>Highest demand</li>
+              <li>Vetting required</li>
+              <li>Pricing varies</li>
+            </ul>
+          </button>
+
+          <button class="tier card" data-tier="Custom" data-range="Custom">
+            <div class="tier-top">
+              <h3>Custom</h3>
+              <span class="badge">Request</span>
+            </div>
+            <p class="muted">Tell me exactly what you need.</p>
+            <ul class="list">
+              <li>Niche-specific</li>
+              <li>Region constraints</li>
+              <li>Follower + engagement goals</li>
+            </ul>
+          </button>
+        </div>
+      </section>
+
+      <section id="request" class="section">
+        <div class="section-head">
+          <h2>Submit a request (ticket)</h2>
+          <p class="muted">
+            This creates a tracked ticket in my admin dashboard. I will respond via email.
+          </p>
+        </div>
+
+        <!--
+          Netlify Forms:
+          - data-netlify="true" enables form capture
+          - name="account_request" identifies the form in Netlify dashboard
+          - netlify-honeypot blocks bots
+          - action="/success.html" redirects on success
+        -->
+        <form
+          class="card form"
+          name="account_request"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/success.html"
+        >
+          <input type="hidden" name="form-name" value="account_request" />
+
+          <!-- Honeypot field (hidden) -->
+          <p class="hidden">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="row">
+            <div class="field">
+              <label for="fullName">Full name</label>
+              <input id="fullName" name="fullName" type="text" placeholder="John Doe" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@domain.com" required />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="tier">Tier</label>
+              <select id="tier" name="tier" required>
+                <option value="" disabled selected>Select a tier</option>
+                <option value="5k">5k</option>
+                <option value="10k">10k</option>
+                <option value="50k+">50k+</option>
+                <option value="Custom">Custom</option>
+              </select>
+              <div class="hint" id="tierHint"></div>
+            </div>
+
+            <div class="field">
+              <label for="budget">Budget (USD)</label>
+              <input id="budget" name="budget" type="text" placeholder="e.g., 300–600" />
+              <div class="hint">Optional. Helps me send the right options.</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="region">Region / market</label>
+              <input id="region" name="region" type="text" placeholder="US / UK / Global / etc." />
+            </div>
+
+            <div class="field">
+              <label for="niche">Niche (optional)</label>
+              <input id="niche" name="niche" type="text" placeholder="Fitness, Beauty, Islamic books, etc." />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="requirements">Requirements</label>
+            <textarea
+              id="requirements"
+              name="requirements"
+              rows="6"
+              placeholder="What are you looking for? Any constraints? (followers, engagement, account age, affiliate status, etc.)"
+              required
+            ></textarea>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="contactPreference">Preferred contact method</label>
+              <select id="contactPreference" name="contactPreference" required>
+                <option value="Email" selected>Email</option>
+                <option value="Discord">Discord (provide handle in notes)</option>
+                <option value="Telegram">Telegram (provide handle in notes)</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="notes">Extra notes (optional)</label>
+              <input id="notes" name="notes" type="text" placeholder="Discord/Telegram handle, timeline, etc." />
+            </div>
+          </div>
+
+          <!-- Simple “terms” acknowledgement -->
+          <label class="checkbox">
+            <input type="checkbox" name="acknowledgement" required />
+            <span>
+              I understand availability changes and this request is not a guarantee of a specific account.
+            </span>
+          </label>
+
+          <div class="actions">
+            <button class="btn primary" type="submit">Submit Ticket</button>
+            <button class="btn ghost" type="button" id="clearBtn">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="faq" class="section">
+        <div class="section-head">
+          <h2>FAQ</h2>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Where do my requests go?</h3>
+            <p class="muted">
+              Requests appear in your Netlify Forms dashboard (your admin inbox). You can also enable email notifications.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Can you accept payments here?</h3>
+            <p class="muted">
+              Yes, but don’t start there. First, get your pipeline organized. Next step: Stripe checkout links or invoices,
+              and a policy page to reduce disputes.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>How do we reduce PayPal chargebacks?</h3>
+            <p class="muted">
+              Use clear terms, verification steps, and ideally migrate to card/Stripe with identity checks. Also keep all
+              communication inside one channel (email tickets).
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Can I add “in-stock” listings later?</h3>
+            <p class="muted">
+              Yes. We can add an inventory page fed by a simple JSON file or a headless CMS, and let customers request a
+              specific listing.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="muted">© <span id="year"></span> Affiliate Accounts</div>
+      </footer>
+    </main>
+
+    <script src="/assets/app.js"></script>
+  </body>
+</html>
