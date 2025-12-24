@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Request</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <div class="card">
+        <h1>Request</h1>
+
+        <!-- Netlify Forms: stores all requests in Netlify dashboard -->
+        <form
+          name="requests"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/success.html"
+          id="reqForm"
+        >
+          <input type="hidden" name="form-name" value="requests" />
+
+          <!-- TicketId auto-filled by JS -->
+          <input type="hidden" name="ticketId" id="ticketId" />
+
+          <!-- Honeypot -->
+          <p class="hidden">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <label>
+            Email
+            <input name="email" type="email" required />
+          </label>
+
+          <label>
+            Tier
+            <select name="tier" required>
+              <option value="" disabled selected>Select</option>
+              <option value="5k">5k</option>
+              <option value="10k">10k</option>
+              <option value="50k+">50k+</option>
+              <option value="custom">custom</option>
+            </select>
+          </label>
+
+          <label>
+            Quantity
+            <input name="quantity" type="number" min="1" value="1" required />
+          </label>
+
+          <label>
+            Code (optional)
+            <input name="code" type="text" placeholder="SOURCEA" />
+          </label>
+
+          <!-- Store acceptance evidence -->
+          <input type="hidden" name="termsVersion" value="v1" />
+          <input type="hidden" name="termsAcceptedAt" id="termsAcceptedAt" />
+
+          <label class="check">
+            <input type="checkbox" required />
+            <span>I agree to the <a href="/terms.html" target="_blank">Terms</a>. Payment is crypto/Zelle only.</span>
+          </label>
+
+          <button type="submit">Submit</button>
+
+          <p class="muted">Ticket: <span id="ticketDisplay">—</span></p>
+        </form>
+      </div>
+    </main>
+
+    <script src="/assets/user.js"></script>
+  </body>
+</html>
