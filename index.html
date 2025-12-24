@@ -1,77 +1,141 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Request</title>
+    <title>Buy Affiliate Accounts</title>
     <link rel="stylesheet" href="/assets/styles.css" />
   </head>
   <body>
-    <main class="wrap">
-      <div class="card">
-        <h1>Request</h1>
+    <div class="bg"></div>
 
-        <!-- Netlify Forms: stores all requests in Netlify dashboard -->
-        <form
-          name="requests"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          action="/success.html"
-          id="reqForm"
-        >
-          <input type="hidden" name="form-name" value="requests" />
+    <header class="header">
+      <div class="container">
+        <div class="brand">
+          <div class="logo">A</div>
+          <div class="brandText">
+            <div class="brandName">Buy Affiliate Accounts</div>
+            <div class="brandSub">Request an account in under 60 seconds.</div>
+          </div>
+        </div>
+        <a class="link subtle" href="/terms.html" target="_blank" rel="noopener">Terms</a>
+      </div>
+    </header>
 
-          <!-- TicketId auto-filled by JS -->
-          <input type="hidden" name="ticketId" id="ticketId" />
-
-          <!-- Honeypot -->
-          <p class="hidden">
-            <label>Don’t fill this out: <input name="bot-field" /></label>
+    <main class="container">
+      <section class="hero">
+        <div class="heroLeft">
+          <h1>Buy Affiliate Accounts</h1>
+          <p class="lead">
+            Select a tier, submit your request, and you’ll receive next steps by email.
+            Payment is accepted via <strong>crypto</strong> or <strong>Zelle</strong> only.
           </p>
 
-          <label>
-            Email
-            <input name="email" type="email" required />
-          </label>
+          <div class="pills">
+            <div class="pill">Fast intake</div>
+            <div class="pill">Ticket tracking</div>
+            <div class="pill">Clear terms</div>
+          </div>
 
-          <label>
-            Tier
-            <select name="tier" required>
-              <option value="" disabled selected>Select</option>
-              <option value="5k">5k</option>
-              <option value="10k">10k</option>
-              <option value="50k+">50k+</option>
-              <option value="custom">custom</option>
-            </select>
-          </label>
+          <div class="note">
+            <div class="noteTitle">How this works</div>
+            <ol>
+              <li>Submit a request below.</li>
+              <li>We email you next steps (and payment instructions if required).</li>
+              <li>Delivery occurs via email per the Terms.</li>
+            </ol>
+          </div>
+        </div>
 
-          <label>
-            Quantity
-            <input name="quantity" type="number" min="1" value="1" required />
-          </label>
+        <div class="card">
+          <div class="cardHead">
+            <div class="cardTitle">Submit a Request</div>
+            <div class="cardSub">You’ll get a ticket ID immediately.</div>
+          </div>
 
-          <label>
-            Code (optional)
-            <input name="code" type="text" placeholder="SOURCEA" />
-          </label>
+          <!-- Netlify Forms -->
+          <form
+            name="requests"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            action="/success.html"
+            id="reqForm"
+          >
+            <input type="hidden" name="form-name" value="requests" />
 
-          <!-- Store acceptance evidence -->
-          <input type="hidden" name="termsVersion" value="v1" />
-          <input type="hidden" name="termsAcceptedAt" id="termsAcceptedAt" />
+            <!-- generated -->
+            <input type="hidden" name="ticketId" id="ticketId" />
+            <input type="hidden" name="termsVersion" value="v1" />
+            <input type="hidden" name="termsAcceptedAt" id="termsAcceptedAt" />
 
-          <label class="check">
-            <input type="checkbox" required />
-            <span>I agree to the <a href="/terms.html" target="_blank">Terms</a>. Payment is crypto/Zelle only.</span>
-          </label>
+            <!-- honeypot -->
+            <p class="hidden">
+              <label>Don’t fill this out: <input name="bot-field" /></label>
+            </p>
 
-          <button type="submit">Submit</button>
+            <div class="grid2">
+              <label class="field">
+                <span>Email</span>
+                <input name="email" type="email" required placeholder="you@example.com" autocomplete="email" />
+              </label>
 
-          <p class="muted">Ticket: <span id="ticketDisplay">—</span></p>
-        </form>
-      </div>
+              <label class="field">
+                <span>Tier</span>
+                <select name="tier" required>
+                  <option value="" disabled selected>Select</option>
+                  <option value="5k">5k</option>
+                  <option value="10k">10k</option>
+                  <option value="50k+">50k+</option>
+                  <option value="custom">custom</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="grid2">
+              <label class="field">
+                <span>Quantity</span>
+                <input name="quantity" type="number" min="1" value="1" required />
+              </label>
+
+              <label class="field">
+                <span>Code (optional)</span>
+                <input name="code" type="text" placeholder="SOURCEA" />
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Notes (optional)</span>
+              <textarea name="notes" rows="3" placeholder="Any constraints or details you want us to know"></textarea>
+            </label>
+
+            <label class="check">
+              <input type="checkbox" required />
+              <span>
+                I agree to the <a class="link" href="/terms.html" target="_blank" rel="noopener">Terms</a>.
+                I understand payment is crypto/Zelle only and digital delivery is final per the Terms.
+              </span>
+            </label>
+
+            <button class="btn" type="submit">Submit Request</button>
+
+            <div class="ticketLine">
+              <span class="muted">Ticket ID</span>
+              <span class="mono" id="ticketDisplay">—</span>
+            </div>
+
+            <div class="fineprint">
+              Requests are processed in the order received.
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="muted">Support is handled via email based on your ticket.</div>
+      </footer>
     </main>
 
-    <script src="/assets/user.js"></script>
+    <script src="/assets/app.js"></script>
   </body>
 </html>
